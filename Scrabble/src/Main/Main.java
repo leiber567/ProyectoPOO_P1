@@ -22,7 +22,11 @@ public class Main {
         
         //t1.mostrarTablero();
         String a = (char)27+"[045;37m"+"Lx2"+(char)27+"[049;30m";
-        
+        HashMap<String, Integer> fichas = new HashMap<String, Integer>();
+        fichas.put("A", 4);
+        fichas.put("B", 6);
+        System.out.println(fichas.get("Blank"));
+        System.out.println((char)65);
     }
     
 }
