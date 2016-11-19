@@ -1,6 +1,6 @@
 package Mesa;
 
-public class Posicion {
+public class Coordenada {
     private int coordX;
     private int coordY;
 }
