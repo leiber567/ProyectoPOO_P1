@@ -16,17 +16,23 @@ public class Main {
         CasillaBonusWordx3 r = new CasillaBonusWordx3(5,4);
         asd.add(q1);
         Tablero t1 = new Tablero();
+ 
         System.out.println(5 == p1.getCoordX() && 4==p1.getCoordY());
         System.out.println(asd.contains(r));
         System.out.println((char)27+"[042;37m"+"L"+(char)27+"[049;30m");
         
-        //t1.mostrarTablero();
-        String a = (char)27+"[045;37m"+"Lx2"+(char)27+"[049;30m";
-        HashMap<String, Integer> fichas = new HashMap<String, Integer>();
-        fichas.put("A", 4);
-        fichas.put("B", 6);
-        System.out.println(fichas.get("Blank"));
+        t1.mostrarTablero();
+ 
         System.out.println((char)65);
+       Fichas f = new Fichas();
+       String car = "CARRO";
+       ArrayList<Integer> asdqw = new ArrayList();
+       asdqw.add(1);
+       asdqw.add(5);
+       asdqw.add(0, 15);
+        System.out.println(asdqw);
+       
+    
     }
     
 }

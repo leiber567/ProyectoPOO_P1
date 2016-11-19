@@ -5,13 +5,23 @@ public class Casilla {
     private int coordY;
     private int valor;
     private String tipo;
+    private String contenido;
     public Casilla(int coordX, int coordY) {
         this.coordX = coordX;
         this.coordY = coordY;
         this.valor = 0;
         this. tipo = "Casilla";
+        this.contenido = null;
     }
 
+    public String getContenido() {
+        return contenido;
+    }
+
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
+    }
+   
     public int getCoordX() {
         return coordX;
     }
