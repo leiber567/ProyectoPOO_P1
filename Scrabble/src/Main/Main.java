@@ -2,37 +2,71 @@ package Main;
 
 import Mesa.*;
 import Casillas.*;
+import Menu.MiMenu;
 import java.util.*;
+import Jugador.*;
 public class Main {
 
     public static void main(String[] args) {
-        Punto p1 = new Punto (5,4);
-        ArrayList<Casilla> asd = new ArrayList();
-        asd.add(new CasillaNormal(5,4));
-        CasillaNormal q1 = new CasillaNormal(5,4);
-        CasillaBonusLetterx2 q2= new CasillaBonusLetterx2(5,4);
-        CasillaBonusLetterx3 q3= new CasillaBonusLetterx3(5,4);
-        
-        CasillaBonusWordx3 r = new CasillaBonusWordx3(5,4);
-        asd.add(q1);
+      
+        Scanner escaner = new Scanner (System.in);
+        escaner.useLocale(Locale.US);
+        escaner.useDelimiter("\n");
+        MiMenu.mostrarMenu();
         Tablero t1 = new Tablero();
+
+        Palabra w;
  
-        System.out.println(5 == p1.getCoordX() && 4==p1.getCoordY());
-        System.out.println(asd.contains(r));
-        System.out.println((char)27+"[042;37m"+"L"+(char)27+"[049;30m");
-        
-        t1.mostrarTablero();
- 
-        System.out.println((char)65);
-       Fichas f = new Fichas();
-       String car = "CARRO";
-       ArrayList<Integer> asdqw = new ArrayList();
-       asdqw.add(1);
-       asdqw.add(5);
-       asdqw.add(0, 15);
-        System.out.println(asdqw);
+     
+        /*for(int i=0;i<3;i++){
+           
+           System.out.print("Fila");
+           a = escaner.nextInt();
+           System.out.print("Columna");
+           b = escaner.nextInt();
+           System.out.print("Orientacion");
+           c = escaner.nextInt();
+           System.out.println("Palabra");
+           word = escaner.next();
+           w = t1.verificarPosCasillas(word, c, a, b, atril);
+           System.out.println(w.getWord());
+           if(w!=null && t1.verificarContiguas(w))
+               t1.ponerFichas(t1, w);
+           t1.mostrarTablero();*/
        
-    
+        
+        Fichas f = new Fichas();
+        Player j = new Player("Leiber");
+        Diccionario d = new Diccionario();
+        /*f.getNumeroFichas().put("RR", f.getNumeroFichas().get("RR")-1);
+        System.out.println(f.getNumeroFichas());
+        */
+        String []tgb = {"ELEFANTE","CARRO","LEON"};
+        int [] posx={7,6,8};
+        int [] posy={4,8,11};
+        int [] or={2,1,2};
+        
+        j.setAtril(f);
+        j.getAtril().mostrarAtril();
+        System.out.println();
+        for(int i = 0;i<3;i++){
+            escaner.next();
+            w=(t1.verificarPosCasillas(tgb[i], or[i], posx[i], posy[i]));
+            if(w!=null && i==0)
+                t1.ponerFichas(w);
+            
+            else if(w!=null && t1.verificarContiguas(w) && i!=0){
+                System.out.println(t1.verificarContiguas(w));
+                t1.ponerFichas(w);                
+            }
+
+            t1.mostrarTablero();
+            ArrayList<String> ccc= new ArrayList();
+            ccc.add("C");
+            ccc.add("A");
+            System.out.println(ccc.toString());
+        }
     }
     
 }
+

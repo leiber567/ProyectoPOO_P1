@@ -1,26 +1,37 @@
 package Mesa;
 import java.util.*;
 public class Palabra {
-    private String word;
+    private ArrayList<String> letrasPalabra;
     private ArrayList<Coordenada> coordenadas;
     private int orientacion;
-    public Palabra(String word, ArrayList<Coordenada> coordenadas, int orientacion){
-        this.word = word;
+    private String palabra;
+    public Palabra(String palabra, ArrayList<Coordenada> coordenadas, ArrayList<String> letrasPalabra,int orientacion){
+        this.palabra = palabra;
         this.coordenadas = coordenadas;
         this.orientacion = orientacion;
+        this.letrasPalabra = letrasPalabra;
     }
     public Palabra(){
-        this.word = null;
+        this.palabra = null;
         coordenadas = new ArrayList();
         this.orientacion = -1;
-    }
-    
-    public String getWord() {
-        return word;
+        letrasPalabra = new ArrayList();
     }
 
-    public void setWord(String word) {
-        this.word = word;
+    public ArrayList<String> getLetrasPalabra() {
+        return letrasPalabra;
+    }
+
+    public void setLetrasPalabra(ArrayList<String> letrasPalabra) {
+        this.letrasPalabra = letrasPalabra;
+    }
+    
+    public String getPalabra() {
+        return palabra;
+    }
+
+    public void setPalabra(String palabra) {
+        this.palabra = palabra;
     }
 
     public ArrayList<Coordenada> getCoordenadas() {
@@ -39,5 +50,20 @@ public class Palabra {
         this.orientacion = orientacion;
     }
     
-    
+    public static ArrayList<String> arreglarLetrasPalabra(String palabra){
+        ArrayList<String> letrasPalabra = new ArrayList();
+        String arrayPalabra[] = new String[palabra.length()];
+        for(int i = 0; i<arrayPalabra.length;i++){
+            if(i==0){
+                arrayPalabra[i] = Character.toString(palabra.charAt(i));
+            }
+            else if(i-1>=0 && (palabra.charAt(i)!=palabra.charAt(i-1)))
+                arrayPalabra[i] = Character.toString(palabra.charAt(i));
+            if(i+1<arrayPalabra.length && (palabra.charAt(i)==palabra.charAt(i+1)))
+                arrayPalabra[i]+=Character.toString(palabra.charAt(i+1));
+            if(arrayPalabra[i]!=null)
+                letrasPalabra.add(arrayPalabra[i]);
+        }
+        return letrasPalabra;
+    }
 }

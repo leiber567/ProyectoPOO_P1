@@ -1,6 +1,6 @@
 package Casillas;
 
-public class Casilla {
+public abstract class Casilla {
     private int coordX;
     private int coordY;
     private int valor;
@@ -10,13 +10,15 @@ public class Casilla {
         this.coordX = coordX;
         this.coordY = coordY;
         this.valor = 0;
-        this. tipo = "Casilla";
+        this.tipo = "Casilla";
         this.contenido = null;
     }
 
     public String getContenido() {
         return contenido;
     }
+
+    public abstract String getRepresentacion() ;
 
     public void setContenido(String contenido) {
         this.contenido = contenido;

@@ -4,7 +4,18 @@ public class Diccionario {
     private ArrayList<String> miDiccionario;
     
     public Diccionario(){
-        this.miDiccionario = null;
+        miDiccionario = new ArrayList();
+        this.miDiccionario.add("CARRO");
+        this.miDiccionario.add("CASA");
+        this.miDiccionario.add("ELEFANTE");
+        this.miDiccionario.add("LAPIZ");
+        this.miDiccionario.add("PANTERA");
+        this.miDiccionario.add("EL");
+        this.miDiccionario.add("LA");
+        this.miDiccionario.add("UN");
+        this.miDiccionario.add("RELOJ");
+        this.miDiccionario.add("JAULA");
+        this.miDiccionario.add("EL");       
     }
 
     public ArrayList<String> getMiDiccionario() {
@@ -15,15 +26,10 @@ public class Diccionario {
         this.miDiccionario = miDiccionario;
     }
     
-    public boolean contains(String palabra){
-        for(int i = 0; i<miDiccionario.size(); i++){
-            if(miDiccionario.get(i).equals(palabra))
+    public boolean containsWord(String palabra){        
+        if(miDiccionario.contains(palabra))
                 return true;
-        }
-        return false;
+        else
+            return false;
     }
-    /*
-    public boolean containsWord(Palabra word){
-        if()
-    }*/
 }
